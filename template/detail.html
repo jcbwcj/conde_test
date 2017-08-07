@@ -1,0 +1,41 @@
+<header><span ng-click="goBack()">返回</span>资讯详情</header>
+<xdetail>
+	<div ng-bind-html="msg.content|html"></div>
+</xdetail>
+
+
+<!-- <p ng-controller="aaa">详情页
+	<xdetail></xdetail>
+</p> -->
+<style>
+	header{
+		background-color: blue;
+		color:white;
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+		width: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+	}
+	header span{
+		position: absolute;
+		left: 20px;
+		top:0;
+		font-size: 14px;
+	}
+	.markdown-text{
+		margin-top: 50px;
+		padding:0 10px 20px; 
+	}
+	img{
+		width: 100%;
+	}
+	p{
+
+	}
+	h2{
+		padding: 10px 0;
+	}
+</style>

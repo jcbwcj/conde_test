@@ -1,0 +1,80 @@
+header{
+	background-color: blue;
+	color: white;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+header span{
+	display: block;
+	font-size: 12px;
+	position: absolute;
+	left: 10px;
+
+}
+/*--------xsearch-----------------*/
+.weui-search-bar{
+	margin-top: 50px;
+}
+
+/*-------xswiper-----------*/
+.swiper-container {
+	width: 100%;
+	height: 200px;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-slide img {
+	width: 100%;
+}
+
+/*---------xlist--------------*/
+.weui-panel__ft{
+	margin-bottom: 50px;
+}
+.weui-loadmore{
+	margin-bottom: 50px;
+}
+
+/*----------xfooter---------------*/
+.weui-tab{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	height: 50px;
+}
+/* --------xdetail------------ */
+.detail{
+	padding: 10px;
+	margin: 60px 0;
+	box-sizing:border-box;
+	width: 100%;
+}
+.detail img{
+	width: 100%;
+}

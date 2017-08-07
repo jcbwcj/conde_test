@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Cnode社区</title>
+	<link rel="shortcut icon" href="favoic.ico">
+	<link rel="stylesheet" href="css/weui.css">
+	<link rel="stylesheet" href="css/swiper.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/mine.css">
+
+	<script src="js/vue-2.4.0.js"></script>
+	<script src="js/vuex.js"></script>
+	<script src="js/vue-router2.js"></script>
+	<script src="js/swiper.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script src="component/xheader.js"></script>
+<script src="component/xsearch.js"></script>
+<script src="component/xswiper.js"></script>
+<script src="component/xlist.js"></script>
+<script src="component/xfooter.js"></script>
+<script src="component/xgallery.js"></script>
+<script src="component/xdetail.js"></script>
+<script src="component/xmine.js"></script>
+
+<script>
+	// 设置路由
+	var router  = new VueRouter({
+		routes:[{
+			path:'/index',
+			component:{
+				template:`
+					<div>
+						<xheader></xheader>
+						<xsearch></xsearch>
+						<router-view></router-view>
+						<xgallery></xgallery>
+						<xfooter></xfooter>
+					</div>
+				`
+			},
+			children:[{
+				// 子路由不用写‘/’
+				path:'home',
+				component:{
+					template:`
+						<div>
+							<xswiper></xswiper>
+							<xlist></xlist>	
+						</div>
+					`
+				}
+
+			},{
+				path:'job',
+				component:{
+					template:`
+						<div>
+							<xswiper></xswiper>
+							<xlist></xlist>	
+						</div>
+					`
+				}
+
+			},{
+				path:'good',
+				component:{
+					template:`
+						<div>
+							<xlist></xlist>	
+						</div>
+					`
+				}
+
+			},{
+				path:'mine',
+				component:{
+					template:`
+						<div>
+							<xmine></xmine>	
+						</div>
+					`
+				}
+
+			}]
+		},{
+			path:'/detail/:id',
+			component:{
+				template:`
+					<div>		
+						<xdetail></xdetail>
+						<xfooter></xfooter>
+						<xgallery></xgallery>
+					</div>
+				`
+			}
+		},{
+			// 重定向，设置默认路由
+			path:'/',
+			redirect:'/index/home'
+		}]
+	})
+
+	// vuex
+	// 新建一个状态管理
+	var store = new Vuex.Store({
+		// 定义状态，数据源
+		state:{
+			isShowGallery:false,
+			imgUrl:null,
+			searchMsg:'',
+			pageNum:0,
+			showSearchState:0,
+			gaoduState:0,
+			type:'ask'
+		},
+		getters:{
+
+		},
+		// 分发状态
+		mutations:{
+
+		},
+		//action就是触发mutations
+		actions:{
+
+		}
+	})
+
+	// template中只能有一个根节点，否则会报错
+	new Vue({
+		el:"#demo",
+		store,
+		router,
+		template:`
+			<router-view></router-view>
+		`
+		/*template:`	
+			<div>
+				<xheader></xheader>
+				<xsearch></xsearch>
+				<xswiper></xswiper>
+				<xlist></xlist>
+				<xfooter></xfooter>
+				<xgallery></xgallery>
+			</div>
+		`*/
+	})
+</script>
+</html>
